@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Uneducated Guesser v1.1</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body class="system">
+        <header>
+            <!-- Theme Changer -->
+            <div>
+                <button onclick="document.body.className = 'light'">🔆</button>
+                <button onclick="document.body.className = 'dark'">🌙</button>
+                <button onclick="document.body.className = 'system'">💻</button>
+            </div>
+            
+            <h1>Uneducated Guesser</h1>
+            <p>v1.1</p>
+            <p>For multiple-choice questions only. We use our patent-pending super-chicken advanced technology™ for complete uneducation of guesses.</p>
+            <p>Please note that the guesses are uneducated and we assume no responsibility for your test scores.</p>
+            <button onclick="home.hidden = true; next1.hidden = true; next2.hidden = true; q.hidden = true; historyPage.hidden = false; viewHistory(historyA);">View History</button>
+            <hr>
+        </header>
+
+        <div id="q">
+            <label for="opt">Optional but recommended:<br></label>
+            <input id="opt" type="text" placeholder="Question">
+            <br><br>
+        </div>
+
+        <div id="home">
+            <form id="form1" novalidate>
+                <input type="radio" name="t" id="a" value="numbered">
+                <label for="a">Enter number of questions:</label>
+                <input type="number" placeholder="# of Questions" id="ammount">
+                <br>
+                <input type="radio" name="t" id="b" value="listed">
+                <label for="b">Enter list of questions.</label>
+                <br>
+                <div style="margin-top: 5px;">
+                    <button type="submit">Next ></button>
+                    <button type="button" onclick="restart();">Restart</button>
+                </div>
+            </form>
+            <p id="error" style="color: red;"></p>
+        </div>
+
+        <div id="next1" hidden>
+            <div id="next1a">
+                <button onclick="next1.hidden = true; home.hidden = false;">< Back</button>
+                <h2>Enter all choices:</h2>
+                <ol id="rows"></ol>
+                <button onclick="check()">Next ></button>
+                <button onclick="addRow()">+ Add Answer Choice</button>
+                <p id="error1" style="color: red;"></p>
+            </div>
+
+            <div id="next1b" hidden>
+                <button onclick="next1a.hidden = false; next1b.hidden = true; p2.hidden = true; document.getElementById('copyT').textContent = '📋 Copy Guess';">< Back</button>
+                <button onclick="generate2(); document.getElementById('copyT').textContent = '📋 Copy Guess';">Regenerate Response</button>
+                <p id="p2" hidden>You should pick: <strong>"<span id="answer2"></span>"</strong></p>
+                <button id="copyT" onclick="copyText()">📋 Copy Guess</button>
+            </div>
+        </div>
+        
+        <div id="next2" hidden>
+            <button onclick="home.hidden = false; next2.hidden = true; p1.hidden = true; document.getElementById('copyN').textContent = '📋 Copy Guess';">< Back</button>
+            <button onclick="generate1(); document.getElementById('copyN').textContent = '📋 Copy Guess';">Regenerate Response</button>
+            <p id="p1" hidden>You should pick <strong>OPTION <span id="answer1"></span></strong> as your answer.</p>
+            <button id="copyN" onclick="copyNumber();">📋 Copy Guess</button>
+        </div>
+
+        <div id="historyPage" hidden>
+            <div id="historyContent"></div>
+            <p id="mostRecentAtTop" hidden>Most recent at top.</p>
+            <button onclick="home.hidden = false; q.hidden = false; historyPage.hidden = true; document.getElementById('copyH').textContent = '📋 Copy History'">< Back</button>
+            <button onclick="clearHistory(historyA)">Clear history</button>
+            <button id="copyH" onclick="copyHistory()">📋 Copy History</button>
+        </div>
+    </body>
+</html>
