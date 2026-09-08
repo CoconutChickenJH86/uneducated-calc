@@ -1,0 +1,204 @@
+html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: gray;
+}
+
+body {
+    min-width: 350px;
+    padding: 15px;
+    min-height: 100vh;
+    margin: 0px;
+    overflow: auto;
+}
+
+@media (min-width: 520px) {
+    body {
+        width: 520px;
+    }
+}
+
+p, button, span, input, label, li {
+    font-family: "Trebuchet MS", "Arial Narrow", Verdana, Arial, sans-serif;
+    font-size: 14px;
+}
+
+h1, h2 {
+    font-family: "Times New Roman", Times, serif;
+    text-decoration: underline;
+}
+
+button {
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+input[type="number"] {
+    background: transparent;
+    border-radius: 2px;
+    width: 50px;
+}
+
+input[type="text"] {
+    background: transparent;
+    border-radius: 2px;
+    width: 400px;
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 10px;
+    height: 10px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+}
+
+input[type="radio"]:checked {
+    width: 10px;
+    height: 10px;
+    border: none;
+    background: dodgerblue;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    top: 2px;
+}
+
+input[type="radio"]:checked::after {
+    display: block;
+    text-align: center;
+    line-height: 16px;
+    color: white;
+    font-size: 10px;
+}
+
+/* Light, Dark, and System Themes */
+body.light button:hover, body.light input:hover {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+body.light {
+    background: white;
+    color: black;
+}
+
+body.light h1, body.light h2 {
+    color: rgb(100, 100, 100);
+}
+
+body.light input {
+    color: black;
+    border: 1px solid rgb(100, 100, 100);
+}
+
+body.light button {
+    border: 1px solid rgb(100, 100, 100);
+}
+
+body.light input::placeholder {
+    color: rgb(100, 100, 100);
+}
+
+
+body.dark button:hover, body.dark input:hover {
+    box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.4);
+}
+
+body.dark {
+    background: black;
+    color: white;
+}
+
+body.dark h1, body.dark h2 {
+    color: rgb(170, 170, 170)
+}
+
+body.dark input {
+    color: white;
+    border: 1px solid rgb(170, 170, 170)
+}
+
+body.dark input::placeholder {
+    color: rgb(170, 170, 170)
+}
+
+body.dark button {
+    color: white;
+    border: 1px solid rgb(170, 170, 170);
+}
+
+body.system button:hover, body.system input:hover {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+body.system {
+    background: white;
+    color: black;
+}
+
+body.system h1, body.system h2 {
+    color: rgb(100, 100, 100);
+}
+
+body.system input {
+    color: black;
+    border: 1px solid rgb(100, 100, 100);
+}
+
+body.system button {
+    border: 1px solid rgb(100, 100, 100);
+}
+
+body.system input::placeholder {
+    color: rgb(100, 100, 100);
+}
+
+@media (prefers-color-scheme: dark) {
+    body.system button:hover, body.system input:hover {
+        box-shadow: 2px 2px 3px rgba(255, 255, 255, 0.4);
+    }
+
+    body.system {
+        background: black;
+        color: white;
+    }
+
+    body.system h1, body.system h2 {
+        color: rgb(170, 170, 170)
+    }
+
+    body.system input {
+        color: white;
+        border: 1px solid rgb(170, 170, 170)
+    }
+
+    body.system input::placeholder {
+        color: rgb(170, 170, 170)
+    }
+
+    body.system button {
+        color: white;
+        border: 1px solid rgb(170, 170, 170);
+    }
+}
+
+.row {
+    margin-bottom: 5px;
+    gap: 3px;
+}
+
+button {
+    margin-right: 5px;
+}
+
+.trash {
+    margin-left: 5px;
+}
